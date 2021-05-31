@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfMonitoringDevices.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="WpfMonitoringDevices.MainWindow"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:viewModels="clr-namespace:WpfMonitoringDevices.ViewModels"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance viewModels:DevicesMonitorViewModel}"
+        Title="Monitoring Devices" Height="850" Width="1200">
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+           
+        <StackPanel Orientation="Vertical" >
+            <Label> Devices Messages Counting</Label>
+            <StackPanel Orientation="Horizontal">
+                <Label>Sum of all messages: </Label>
+                <Label Content="{Binding MonitoringDeviceDataUi.SumOfAllMessage}"></Label>
+            </StackPanel>
+            
+            <DataGrid x:Name="MonitoringDatadataGrid" ItemsSource="{Binding Path=MonitoringDeviceDataUi.DeviceCounterList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" ></DataGrid>
+            <Label> Sending message To specify Devices</Label>
+            <StackPanel x:Name="DevicesProcessStackPanel">
+                <!-- Dynamic include devices control. Is call method GenerateAllMonitorDevicesProcessingAsComponent() -->
+            </StackPanel> 
+        </StackPanel>
+        <TextBox Grid.Column="1" x:Name="TextBoxLogs" >Logs:</TextBox>
+    </Grid>
+</Window>
