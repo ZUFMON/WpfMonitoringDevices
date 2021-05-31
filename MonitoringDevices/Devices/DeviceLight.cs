@@ -25,7 +25,8 @@ namespace MonitoringDevices.Devices
 
         public string ReadData()
         {
-            CountingWriteMessage();
+            CountingReadMessage();
+           
             if (_data == null) return "Null";
             char[] array = _data.ToCharArray();
             Array.Reverse(array);
@@ -38,7 +39,7 @@ namespace MonitoringDevices.Devices
         {
             _data = data;
             _logger.LogDebug($"Device [{DeviceName}] write data [{data}]");
-            CountingReadMessage();
+            CountingWriteMessage();
             // $" {nameof(DeviceLight)} data ";
             return true;
         }

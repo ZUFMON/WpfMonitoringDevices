@@ -25,7 +25,7 @@
                 <Label Content="{Binding MonitoringDeviceDataUi.SumOfAllMessage}"></Label>
             </StackPanel>
             
-            <DataGrid x:Name="MonitoringDatadataGrid" ItemsSource="{Binding Path=MonitoringDeviceDataUi.DeviceCounterList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" ></DataGrid>
+            <DataGrid x:Name="MonitoringDatadataGrid" ItemsSource="{Binding Path=MonitoringDeviceDataUi.DeviceCounterList, Mode=OneWay}" ></DataGrid>
             <Label> Sending message To specify Devices</Label>
             <StackPanel x:Name="DevicesProcessStackPanel">
                 <!-- Dynamic include devices control. Is call method GenerateAllMonitorDevicesProcessingAsComponent() -->

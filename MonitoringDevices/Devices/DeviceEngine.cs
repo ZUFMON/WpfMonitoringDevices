@@ -25,7 +25,7 @@ namespace MonitoringDevices.Devices
 
         public string ReadData()
         {
-            CountingWriteMessage();
+            CountingReadMessage();
             var data = $"{DateTime.UtcNow.ToLongTimeString()} {nameof(DeviceEngine)} data read... ";
             _logger.LogDebug($"Device [{DeviceName}] read data [{data}]");
             return data;
@@ -34,7 +34,7 @@ namespace MonitoringDevices.Devices
         public bool Write(string data)
         {
             _logger.LogDebug($"Device [{DeviceName}] write data [{data}]");
-            CountingReadMessage();
+            CountingWriteMessage();       
             return true;
         }
     }
