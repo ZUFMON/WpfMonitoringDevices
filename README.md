@@ -1,5 +1,5 @@
-# WpfMonitoringDevices
-Monitoring device is test project.
+# WpfMonitoringDevices (in 2021)
+Monitoring device is test project for Company interview.
 
 After download source code, the project need restore nugets package.
 start wpf application
